@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head 
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css') 
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    nav.navbar.navbar-inverse
+     .container
+      .navbar-header
+       a(href='/').navbar-brand= title
+      ul.nav.navbar-nav.pull-right 
+       li
+        a(href='/about') About
+    block content
+    footer 
+     .container
+      &copy; Nikhil Satish 2016
+    script(src='javascripts/jquery.min.js')

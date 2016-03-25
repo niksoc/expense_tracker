@@ -1,0 +1,27 @@
+extends layout
+
+block content 
+ .container 
+  .col-sm-5 
+    h2 Create Group
+    form
+     .form-group
+      label(for='newGroupName') Group Name
+      input(type='text' placeholder='eg F108, John\'s family').form-control#newGroupName 
+     .form-group
+      label(for='creatorName') Your name
+      input(type='text' placeholder='eg Madhav, Vikram').form-control#creatorName 
+     input(type='submit' value='Create').btn.btn-default 
+  .col-sm-5.col-sm-offset-2 
+    h2 Login
+    form
+     .form-group
+      label(for='groupName') Group Name
+      input(type='text').form-control#groupName 
+     .form-group
+      label(for='username') Username
+      input(type='text').form-control#username 
+     .form-group
+      label(for='password') Password
+      input(type='password').form-control#password 
+     input(type='submit' value='Login').btn.btn-default 

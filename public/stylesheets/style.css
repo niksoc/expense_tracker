@@ -1,0 +1,35 @@
+body{
+    font-size:100%;
+    background-color:#eeeeee; 
+}
+footer{
+    background-color:black;
+    color:#ff7e00;
+    height:30px;
+    font-size:1.2rem;
+    padding-top:5px;
+    position:absolute;
+    bottom:0;
+    width:100%;
+} 
+.navbar{
+    border-radius:0;
+}
+.navbar-inverse{
+    background-color:black;
+} 
+.navbar-inverse .navbar-nav li a{
+    color:#ff7e00;
+    font-size:2rem;
+}
+.navbar-inverse .navbar-nav li a:hover{
+    color:#ffa018;
+} 
+.navbar-inverse .navbar-brand{
+    font-weight:900;
+    font-size:3rem; 
+    color:#ff7e00;
+} 
+.navbar-inverse .navbar-brand:hover{
+    color:#ffa018;
+}
