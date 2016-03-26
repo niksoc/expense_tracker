@@ -31,7 +31,7 @@ var transactions=[{
     "id":1, 
     "balance":1000
 }]; 
-var group={users:[{ 
+var groups={"users":[{ 
     "username":"Nikhil",
     "balance":700 
 },{
@@ -46,12 +46,38 @@ var group={users:[{
 },{ 
     "username":"Abhinaba",
     "balance":300
-}],commonBalance:900
-	  };
-var pendingTransactions=[{
+}],"commonBalance":900,
+"transactionHistory":[{ 
+    "amount":300,
+    "type":"withdrawal",
+    "comment":"big basket purchase for self",
+    "madeBy":"Abhinaba",
+    "id":4, 
+    "balance":900
+},{ 
+    "amount":700,
+    "type":"withdrawal",
+    "comment":"big basket purchase for self",
+    "madeBy":"Nikhil",
+    "id":3, 
+    "balance":1200
+},{
+    "amount":900,
+    "type":"deposit",
+    "comment":"common deposit",
+    "madeBy":"Ayantan",
+    "id":2, 
+    "balance":1900
+},{
+    "amount":1000,
+    "type":"deposit",
+    "comment":"common deposit",
+    "madeBy":"Himanshu",
+    "id":1, 
+    "balance":1000
+}], pendingTransactions:[{
     "id":2,
     "amount":200,
-    "date":"23/03/16",
     "type":"deposit",
     "comment":"common deposit",
     "madeBy":"Ayantan",
@@ -59,7 +85,22 @@ var pendingTransactions=[{
 },{
     "id":1,
     "amount":100,
-    "date":"22/03/16",
+    "type":"withdrawal",
+    "comment":"common deposit",
+    "madeBy":"Himanshu",
+    "confirmedBy":[]
+}]
+	  };
+var pendingTransactions=[{
+    "id":2,
+    "amount":200,
+    "type":"deposit",
+    "comment":"common deposit",
+    "madeBy":"Ayantan",
+    "confirmedBy":["Nikhil"]
+},{
+    "id":1,
+    "amount":100,
     "type":"withdrawal",
     "comment":"common deposit",
     "madeBy":"Himanshu",

@@ -1,0 +1,117 @@
+extends layout
+
+block content
+ .container
+  .col-sm-6 
+   p.lead Hi #{currentUser.username}!
+   p.lead Your current balance with the common is 
+    b Rs.#{currentUser.balance}
+   .col-md-6
+    form#withdraw
+     .form-group
+      .input-group
+       input(type='text' placeholder='200').form-control#withdrawAmount
+       span.input-group-btn 
+        button(type='button').btn.btn-default Withdraw
+   .col-md-6
+    form#deposit
+     .form-group
+      .input-group
+       input(type='text' placeholder='200').form-control#depositAmount
+       span.input-group-btn
+        button(type='button').btn.btn-default Deposit
+   .col-xs-12 
+    h3 Confirmation Pending :
+    .table-responsive
+     table.table.table-hover.table-condensed
+      thead
+        tr
+         th date
+         th type
+         th comments
+         th made by
+         th amount
+         th confirmation
+        tbody
+       each pendingTransaction in pendingTransactions
+        if(pendingTransaction.type=='withdrawal')
+         tr.info
+          td= pendingTransaction.date
+          td= pendingTransaction.type
+          td= pendingTransaction.comment
+          td= pendingTransaction.madeBy
+          td= pendingTransaction.amount
+          td
+           input(type='checkbox' id='#{pendingTransaction.id}')
+        if(pendingTransaction.type=='deposit')
+         tr.success 
+          td= pendingTransaction.date
+          td= pendingTransaction.type
+          td= pendingTransaction.comment
+          td= pendingTransaction.madeBy
+          td= pendingTransaction.amount
+          td
+           input(type='checkbox' id='#{pendingTransaction.id}')
+  .col-sm-6
+   ul(role='tablist').nav.nav-tabs
+    li(role='presentation').active
+     a(role='tab' data-toggle='tab' href='#commonDues') Common dues
+    li(role='presentation')
+     a(role='tab' data-toggle='tab' href='#transactionHistory') Transaction history
+   .tab-content 
+    div(role='tabpanel').tab-pane.active#commonDues 
+     .table-responsive
+      table.table.table-hover.table-condensed
+       thead
+        tr
+         th name
+         th type
+         th amount
+        tbody
+       each user in group.users 
+        if(user.balance>0)
+         tr.info
+          td= user.username
+          td owes 
+          td= user.balance
+        else 
+         tr.success
+          td= user.username
+          td is owed
+          td= -user.balance
+     p.lead Common Wealth (including dues) : #{group.commonWealth}
+     p.lead Actual Common Wealth : #{group.commonBalance}
+    div(role='tabpanel').tab-pane#transactionHistory 
+     .table-responsive
+      table.table.table-hover.table-condensed
+       thead
+        tr
+         th id
+         th date
+         th type
+         th comments
+         th made by
+         th amount
+         th balance
+        tbody
+       each transaction in transactions
+        if(transaction.type=='withdrawal')
+         tr.info
+          td= transaction.id
+          td= transaction.date
+          td= transaction.type
+          td= transaction.comment
+          td= transaction.madeBy
+          td= transaction.amount
+          td= transaction.balance
+        if(transaction.type=='deposit')
+         tr.success
+          td= transaction.id
+          td= transaction.date
+          td= transaction.type
+          td= transaction.comment
+          td= transaction.madeBy
+          td= transaction.amount
+          td= transaction.balance 
+     
+   

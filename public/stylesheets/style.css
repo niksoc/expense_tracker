@@ -1,4 +1,8 @@
+html{
+    height:100%;
+}
 body{
+    height:100%;
     font-size:100%;
     background-color:#eeeeee; 
 }
@@ -8,10 +12,14 @@ footer{
     height:30px;
     font-size:1.2rem;
     padding-top:5px;
-    position:absolute;
-    bottom:0;
     width:100%;
-} 
+}
+.wrapper { /*part of pushing the footer to the bottom */
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -30px;
+}
 .navbar{
     border-radius:0;
 }
@@ -33,3 +41,50 @@ footer{
 .navbar-inverse .navbar-brand:hover{
     color:#ffa018;
 }
+.lead{
+    margin:0; 
+}
+.table-responsive{
+    max-height:450px;
+}
+thead{
+    background-color:black;
+    color:#ff7e00;
+}
+#withdraw, #deposit{
+    margin-top:20px;
+}
+.nav-tabs{
+    border-bottom:2px solid #ddd;
+}
+.nav-tabs li a{
+    color:#ffa018;
+}
+.nav-tabs li a:hover{
+    color:#ff7f00;
+}
+.nav-tabs li.active a, .nav-tabs li.active a:focus, .nav-tabs li.active a:hover{
+    background-color:black;
+    color:#ff7f00;
+    font-size:1.1rem;
+}
+.navbar-nav{
+    margin-left:45%;
+  } 
+.zhigh{   /*hacky solution to ul overlapping the pending table in main page */
+    z-index:99;
+}
+@media(min-width:767px){
+    .navbar-nav{
+	float:right!important;
+    }
+}
+@media(max-width:767px){
+    .navbar-brand{
+	margin-left:28%;
+    }
+    .push{
+	height:30px; /* part of pushing the footer to the bottom */
+    }
+}
+    
