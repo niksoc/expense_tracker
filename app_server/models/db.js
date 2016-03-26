@@ -1,5 +1,8 @@
 var mongoose=require('mongoose');
 var dbURI = 'mongodb://localhost/expense-tracker';
+if(process.env.OPENSHIFT_MONGODB_DB_URL){
+  dbURI = process.env.OPENSHIFT_MONGODB_DB_URL + "expense-tracker";
+}
 mongoose.connect(dbURI);
 mongoose.connection.on('connected', function () {
 console.log('Mongoose connected to ' + dbURI);
@@ -18,3 +21,7 @@ function gracefulShutdown(msg,callback){
 process.once('SIGUSR2', ()=>gracefulShutdown("nodemon restart", ()=>process.kill(process.pid,'SIGUSR2')));
 process.on('SIGINT', ()=>gracefulShutdown("app termination", ()=>process.exit(0)));
 process.on('SIGTERM', ()=>gracefulShutdown("Heroku app shutdown", ()=>process.exit(0)));
+
+require('./groups');
+
+
