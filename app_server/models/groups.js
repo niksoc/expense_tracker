@@ -29,4 +29,4 @@ var groupsSchema=new mongoose.Schema({
     commonBalance:Number 
 });
 
-mongoose.model('group','groupsSchema','groups');
+mongoose.model('group',groupsSchema,'groups');
