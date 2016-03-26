@@ -1,0 +1,5 @@
+extends layout
+ h3= title
+  each para in paras
+   p= para
+   
