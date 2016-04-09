@@ -3,8 +3,10 @@ var router = express.Router();
 var loginCtrl=require('../controllers/loginCtrl');
 var mainCtrl=require('../controllers/mainCtrl');
 var othersCtrl=require('../controllers/othersCtrl');
-/* GET home page. */ 
+var authCtrl=require('../controllers/authCtrl');
 router.get('/', loginCtrl); 
 router.get('/main',mainCtrl);
 router.get('/about',othersCtrl.aboutCtrl);
+router.post('/register',authCtrl.register);
+router.post('/login',authCtrl.login);
 module.exports = router;
