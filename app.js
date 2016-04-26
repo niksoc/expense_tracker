@@ -1,13 +1,20 @@
+<<<<<<< HEAD
 require('dotenv').load();
+=======
+>>>>>>> c6441a52d699dcff1f06d2c7f20b250c69c086a2
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+<<<<<<< HEAD
 var passport=require('passport'); 
 require('./app_server/models/db.js');
 require('./app_server/config/passport');
+=======
+require('./app_server/models/db.js');
+>>>>>>> c6441a52d699dcff1f06d2c7f20b250c69c086a2
 
 var routes = require('./app_server/routes/index');
 var users = require('./app_server/routes/users');
@@ -26,7 +33,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+<<<<<<< HEAD
 app.use(passport.initialize());
+=======
+>>>>>>> c6441a52d699dcff1f06d2c7f20b250c69c086a2
 app.use('/', routes);
 app.use('/users', users);
 

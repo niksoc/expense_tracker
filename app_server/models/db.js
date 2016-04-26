@@ -23,6 +23,9 @@ process.on('SIGINT', ()=>gracefulShutdown("app termination", ()=>process.exit(0)
 process.on('SIGTERM', ()=>gracefulShutdown("Heroku app shutdown", ()=>process.exit(0)));
 
 require('./groups');
+<<<<<<< HEAD
 require('./userid');
+=======
+>>>>>>> c6441a52d699dcff1f06d2c7f20b250c69c086a2
 
 
